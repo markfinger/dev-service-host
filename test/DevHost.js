@@ -286,6 +286,17 @@ describe('DevHost', function() {
       var host = new DevHost();
       assert.isDefined(host.services.__status);
     });
+    it('indicates the host\'s config', function() {
+      var host = new DevHost({
+        outputOnListen: false,
+        silent: true
+      });
+
+      host.callService('__status', function(err, output) {
+        var status = JSON.parse(output);
+        assert.deepEqual(status.config, host.config);
+      });
+    });
     it('indicates the list of available services', function() {
       var host = new DevHost({
         outputOnListen: false,
