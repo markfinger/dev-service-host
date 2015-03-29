@@ -6,13 +6,13 @@ dev-service-host
 A development-oriented wrapper around [service-host](https://github.com/markfinger/service-host).
 
 Provides:
-- A dashboard accessible via a GET request to `/`
+- A dashboard - accessible by pointing your browser at the host
 - Services for controlling/introspecting a running host:
   - `__clear_cache` - Host cache clearing
   - `__hot_load` - Hot-loading of services
-  - `__shutdown` - Shut down a running host. The service will
-    respond before the host has completed the shutdown. If you
-    want a synchronous shutdown, call `bin/stop.js`
+  - `__shutdown` - Start the shut down of a running host. If 
+    you want a guarantee that the host has completed the 
+    shutdown, call `bin/stop.js`
   - `__status` - Host status (config, services available, etc)
 - Host start/stop scripts, with support for controlling a host
   running in a detached process
@@ -43,8 +43,8 @@ node bin/stop.js  # exits once the host has stopped
 All commands accept an optional `--config` option which allows
 you to configure/target a host.
 
-If you run a background host at a non-default address/port, make
-sure that you pass that config into `bin/stop.js` so that it
+If your host is running at an address/port other than the defaults,
+make sure that you pass that config into `bin/stop.js` so that it
 knows where to find the host.
 
 
