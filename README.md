@@ -1,9 +1,10 @@
 dev-service-host
-============
+================
 
 [![Build Status](https://travis-ci.org/markfinger/dev-service-host.svg?branch=master)](https://travis-ci.org/markfinger/dev-service-host)
 
-A development-oriented wrapper around [service-host](https://github.com/markfinger/service-host).
+A development-oriented wrapper around 
+[service-host](https://github.com/markfinger/service-host).
 
 Provides:
 - A dashboard accessible via a GET request to `/`
