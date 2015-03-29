@@ -1,6 +1,6 @@
 {
   "name": "dev-service-host",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Development wrapper around service-host",
   "author": "Mark Finger <markfinger@gmail.com>",
   "license": "MIT",
