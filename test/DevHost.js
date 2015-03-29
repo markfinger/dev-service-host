@@ -3,6 +3,7 @@ var child_process = require('child_process');
 var assert = require('chai').assert;
 var request = require('request');
 var _ = require('lodash');
+var spawnSync = require('spawn-sync');
 var DevHost = require('../lib/DevHost');
 var DevService = require('../lib/DevService');
 
@@ -377,7 +378,7 @@ describe('DevHost', function() {
       });
     });
     it('should shutdown the process if the process has been inactive', function() {
-      var startJs = child_process.spawnSync(
+      var startJs = spawnSync(
         'node', [
           path.join(__dirname, '..', 'bin', 'start.js'),
           '--blocking',

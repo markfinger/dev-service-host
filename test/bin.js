@@ -2,12 +2,13 @@ var path = require('path');
 var request = require('request');
 var assert = require('chai').assert;
 var child_process = require('child_process');
+var spawnSync = require('spawn-sync'); // node 0.10.x support
 var DevHost = require('../lib/DevHost');
 
 describe('bin', function() {
   describe('start.js', function() {
     it('blocks until a detached process has started listening', function(done) {
-      var startJs = child_process.spawnSync(
+      var startJs = spawnSync(
         'node', [path.join(__dirname, '..', 'bin', 'start.js')]
       );
 
@@ -51,7 +52,7 @@ describe('bin', function() {
   describe('stop.js', function() {
     it('can stop a detached process', function(done) {
       this.timeout(4000);
-      var startJs = child_process.spawnSync(
+      var startJs = spawnSync(
         'node', [path.join(__dirname, '..', 'bin', 'start.js')]
       );
       var host = new DevHost();
@@ -59,7 +60,7 @@ describe('bin', function() {
       request.post({url: host.getUrl(), headers: {'X-Service': '__status'}}, function(err, res, body) {
         var status = JSON.parse(body);
         assert.isTrue(status.isListening);
-        var stopJs = child_process.spawnSync(
+        var stopJs = spawnSync(
           'node', [path.join(__dirname, '..', 'bin', 'stop.js')]
         );
         assert.equal(stopJs.stdout.toString(), 'Stopped the host at ' + host.getAddress() + '\n');
