@@ -1,5 +1,5 @@
-dev-service-host
-================
+dev-service-host (Deprecated)
+=============================
 
 [![Build Status](https://travis-ci.org/markfinger/dev-service-host.svg?branch=master)](https://travis-ci.org/markfinger/dev-service-host)
 
